@@ -22,6 +22,13 @@ ADMINS = (
     # ('Your Name', 'your_email@example.com'),
 )
 
+AUTHENTICATION_BACKENDS = (
+    'test_steelkiwi.auth_email.EmailOrUsernameModelBackend',
+)
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'test_steelkiwi.context_processor.settings_processor'
+)
 MANAGERS = ADMINS
 
 DATABASES = {
@@ -114,6 +121,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'test_steelkiwi.middleware.Middleware',
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
