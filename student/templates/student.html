@@ -1,0 +1,29 @@
+{%  extends 'base.html' %}
+{% block title %}
+    Student LIst
+{% endblock %}
+{% block content %}
+    <table>
+    <thead>
+    <tr>
+        <td>Name</td>
+        <td>Birthday</td>
+        <td>Student Card</td>
+        <td>Group</td>
+    </tr>
+    </thead>
+    <tbody>
+    {% for student in students_list %}
+    <tr>
+        <td>{{ student.get_full_name }}</td>
+        <td>{{ student.birthday }}</td>
+        <td>{{ student.student_card }}</td>
+        <td>{{ student.group.name }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+    <a href="add_group/">Add Group</a>
+    <a href="add_student">Add Student</a>
+
+{% endblock %}

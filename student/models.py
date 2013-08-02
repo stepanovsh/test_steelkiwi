@@ -2,8 +2,8 @@ from django.db import models
 
 
 class Student(models.Model):
-    name = models.CharField(verbose_name="Name", max_length=50 )
     surname = models.CharField(verbose_name="Surname", max_length=100)
+    name = models.CharField(verbose_name="Name", max_length=50 )
     father = models.CharField(verbose_name="Father", max_length=100)
     birthday = models.DateField(verbose_name="Berthday")
     student_card =  models.CharField(verbose_name="Student Card",  max_length=50)
@@ -12,5 +12,11 @@ class Student(models.Model):
     class Meta:
         ordering = ['surname', 'name']
 
-    def __unicode__(self):
+
+    def get_full_name(self):
         return "%s %s %s" % (self.surname, self.name, self.father)
+
+    def __unicode__(self):
+        return self.get_full_name()
+
+

@@ -11,3 +11,8 @@ class Group(models.Model):
 
     def __unicode__(self):
         return "%s" % self.name
+
+    #@models.permalink
+    def get_absolute_url(self):
+        return 'group_view/%i/' % self.pk
+        #return ('group_view', [str(self.pk)])
