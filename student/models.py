@@ -19,4 +19,11 @@ class Student(models.Model):
     def __unicode__(self):
         return self.get_full_name()
 
+    @models.permalink
+    def get_edit_url(self):
+        return ('edit_student' , [self.pk])
+
+    @models.permalink
+    def get_del_url(self):
+        return ('del_student',  [self.pk])
 

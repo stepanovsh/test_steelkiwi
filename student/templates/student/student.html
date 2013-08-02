@@ -10,6 +10,7 @@
         <td>Birthday</td>
         <td>Student Card</td>
         <td>Group</td>
+        <td></td>
     </tr>
     </thead>
     <tbody>
@@ -19,6 +20,10 @@
         <td>{{ student.birthday }}</td>
         <td>{{ student.student_card }}</td>
         <td>{{ student.group.name }}</td>
+        <td>
+                <a href="{{ student.get_del_url }}">Delete</a>
+                <a href="{{ student.get_edit_url }}">Edit</a>
+        </td>
     </tr>
     {% endfor %}
     </tbody>

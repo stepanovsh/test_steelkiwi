@@ -2,16 +2,27 @@
 {% block content %}
     <table>
         <thead>
+        <tr>
             <td>Group</td>
             <td>Number of students</td>
             <td>Chief</td>
+            <td></td>
+        </tr>
         </thead>
+        <tbody>
         {% for group in group_list %}
         <tr>
             <td><a href="{{group.get_absolute_url}}">{{ group.name }}</a> </td>
             <td>{{ group.students.count }}</td>
             <td>{{ group.chief.get_full_name }}</td>
+            <td>
+                <a href="{{ group.get_del_url }}">Delete</a>
+                <a href="{{ group.get_edit_url }}">Edit</a>
+            </td>
         </tr>
         {% endfor %}
+        </tbody>
     </table>
+    <a href="add_group/">Add Group</a>
+    <a href="add_student">Add Student</a>
 {% endblock %}

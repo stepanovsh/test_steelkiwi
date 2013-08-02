@@ -1,3 +1,4 @@
+from django.core.urlresolvers import reverse,reverse_lazy
 from django.db import models
 
 
@@ -12,7 +13,14 @@ class Group(models.Model):
     def __unicode__(self):
         return "%s" % self.name
 
-    #@models.permalink
+    @models.permalink
     def get_absolute_url(self):
-        return 'group_view/%i/' % self.pk
-        #return ('group_view', [str(self.pk)])
+        return ('student_list', [self.pk])
+
+    @models.permalink
+    def get_edit_url(self):
+        return ('edit_group' , [self.pk])
+
+    @models.permalink
+    def get_del_url(self):
+        return ('del_group',  [self.pk])
