@@ -1,4 +1,5 @@
 {%  extends 'base.html' %}
+{% load edit_list %}
 {% block title %}
     Student LIst
 {% endblock %}
@@ -23,6 +24,7 @@
         <td>
                 <a href="{{ student.get_del_url }}">Delete</a>
                 <a href="{{ student.get_edit_url }}">Edit</a>
+                {% edit_list student %}
         </td>
     </tr>
     {% endfor %}

@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load edit_list %}
 {% block content %}
     <table>
         <thead>
@@ -18,6 +19,7 @@
             <td>
                 <a href="{{ group.get_del_url }}">Delete</a>
                 <a href="{{ group.get_edit_url }}">Edit</a>
+                {% edit_list group %}
             </td>
         </tr>
         {% endfor %}

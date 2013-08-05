@@ -27,6 +27,7 @@ AUTHENTICATION_BACKENDS = (
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.contrib.auth.context_processors.auth',
     'test_steelkiwi.context_processor.settings_processor'
 )
 MANAGERS = ADMINS
