@@ -4,9 +4,9 @@
     Student LIst
 {% endblock %}
 {% block content %}
-    <table>
+    <table style="border: 1px solid #000000">
     <thead>
-    <tr>
+    <tr style="border: 1px solid #000000">
         <td>Name</td>
         <td>Birthday</td>
         <td>Student Card</td>
@@ -16,7 +16,7 @@
     </thead>
     <tbody>
     {% for student in students_list %}
-    <tr>
+    <tr style="border: 1px solid #000000">
         <td>{{ student.get_full_name }}</td>
         <td>{{ student.birthday }}</td>
         <td>{{ student.student_card }}</td>

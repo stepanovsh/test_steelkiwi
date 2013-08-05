@@ -1,0 +1,18 @@
+[
+{
+    "pk": 1, 
+    "model": "group.group", 
+    "fields": {
+        "chief": 1, 
+        "name": "\u0421\u041f-03\u0432"
+    }
+},
+{
+    "pk": 2, 
+    "model": "group.group", 
+    "fields": {
+        "chief": 2, 
+        "name": "\u0421\u041f-03\u0430"
+    }
+}
+]

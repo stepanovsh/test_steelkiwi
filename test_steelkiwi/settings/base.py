@@ -133,7 +133,7 @@ ROOT_URLCONF = 'test_steelkiwi.urls'
 WSGI_APPLICATION = 'test_steelkiwi.wsgi.application'
 
 TEMPLATE_DIRS = (
-    normpath(join(SITE_ROOT, 'templates')),
+    normpath(join(SITE_ROOT, 'test_steelkiwi/templates')),
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -151,7 +151,8 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
     'group',
-    'student'
+    'student',
+    'log_db'
 )
 
 # A sample logging configuration. The only tangible logging
