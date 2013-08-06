@@ -16,5 +16,8 @@ init:
 	python manage.py loaddata --settings=test_steelkiwi.settings.local student/student.json
 
 default:
-	requirements db init run
+	@make requirements 
+	@make db 
+	@make init 
+	@make run
 
