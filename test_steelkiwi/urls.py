@@ -7,7 +7,7 @@ admin.autodiscover()
 
 #Load app
 from group.views import GroupView, GroupAddView, GroupEditView, GroupDeleteView
-from student.views import StudentsView, StudentsAddView, StudentsEditView, StudentsDeleteView
+from student.views import StudentsView, StudentsAddView, StudentsEditView, StudentsDeleteView, StudentsAddViewWithPk
 from django.views.generic.base import RedirectView
 from django.core.urlresolvers import reverse_lazy
 
@@ -24,6 +24,7 @@ urlpatterns = patterns('',
     #Students view
     url(r'^student/(\d+)/$', StudentsView.as_view(), name='student_list'),
     url(r'^student/add/$', login_required(StudentsAddView.as_view(), login_url=('/login/')), name='add_student'),
+    url(r'^student/add/(?P<pk>\d+)/$', login_required(StudentsAddViewWithPk.as_view(), login_url=('/login/')), name='add_student_group'),
     url(r'^student/edit/(?P<pk>\d+)/$', login_required(StudentsEditView.as_view(), login_url=('/login/')), name='edit_student'),
     url(r'^student/del/(?P<pk>\d+)/$', login_required(StudentsDeleteView.as_view(), login_url=('/login/')), name='del_student'),
 
