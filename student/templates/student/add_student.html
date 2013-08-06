@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
+
     <h1>Add new student</h1>
     <form method="POST" action="">
     {% csrf_token %}
@@ -10,4 +11,5 @@
             </td>
         </table>
     </form>
+    <div><a href="{% url 'group' %}">Back to group list</a> </div>
 {% endblock %}
