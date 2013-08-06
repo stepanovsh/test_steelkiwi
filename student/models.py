@@ -5,7 +5,7 @@ class Student(models.Model):
     surname = models.CharField(verbose_name="Surname", max_length=100)
     name = models.CharField(verbose_name="Name", max_length=50 )
     father = models.CharField(verbose_name="Father", max_length=100)
-    birthday = models.DateField(verbose_name="Berthday")
+    birthday = models.DateField(verbose_name="Birthday")
     student_card =  models.CharField(verbose_name="Student Card",  max_length=50)
     group = models.ForeignKey('group.Group', verbose_name="Group", related_name='students')
 
