@@ -36,4 +36,4 @@ nosetests.xml
 .idea
 
 #DataBase
-*.db
+storage.db
