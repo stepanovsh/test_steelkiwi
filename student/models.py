@@ -1,13 +1,13 @@
 from django.db import models
-
+from django.utils.translation import ugettext_lazy as _u
 
 class Student(models.Model):
-    surname = models.CharField(verbose_name="Surname", max_length=100)
-    name = models.CharField(verbose_name="Name", max_length=50 )
-    father = models.CharField(verbose_name="Father", max_length=100)
-    birthday = models.DateField(verbose_name="Birthday")
-    student_card =  models.CharField(verbose_name="Student Card",  max_length=50)
-    group = models.ForeignKey('group.Group', verbose_name="Group", related_name='students')
+    surname = models.CharField(verbose_name=_u("Surname"), max_length=100)
+    name = models.CharField(verbose_name=_u("Name"), max_length=50 )
+    father = models.CharField(verbose_name=_u("Father"), max_length=100)
+    birthday = models.DateField(verbose_name=_u("Birthday"))
+    student_card =  models.CharField(verbose_name=_u("Student Card"),  max_length=50,  unique=True)
+    group = models.ForeignKey('group.Group', verbose_name=_u("Group"), related_name='students')
 
     class Meta:
         ordering = ['surname', 'name']

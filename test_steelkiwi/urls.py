@@ -1,7 +1,7 @@
 from django.conf.urls import patterns, include, url
 from django.contrib.auth.decorators import login_required
 
-# Uncomment the next two lines to enable the admin:
+
 from django.contrib import admin
 admin.autodiscover()
 
@@ -25,12 +25,7 @@ urlpatterns = patterns('',
     url(r'^del_student/(?P<pk>\d+)/$', login_required(StudentsDeleteView.as_view(), login_url=('/login/')), name='del_student'),
 
 
-    # url(r'^test_steelkiwi/', include('test_steelkiwi.foo.urls')),
 
-    # Uncomment the admin/doc line below to enable admin documentation:
-    # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-
-    # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
     #Login
     url(r'^login/$', 'django.contrib.auth.views.login', {'template_name': 'login.html'}, name='login'),
