@@ -22,15 +22,23 @@ class StudentsAddView(CreateView):
     Add Student
     """
     model = Student
-    success_url = reverse_lazy('group')
     template_name = 'student/add_student.html'
 
 
 class StudentsAddViewWithPk(FormView):
     form_class = StudentForm
     template_name = "student/add_student.html"
-    success_url = reverse_lazy('group')
-    
+
+
+    def get_success_url(self):
+        return reverse('student_list',args=[int(self.kwargs['pk'])])
+
+    def get_initial(self):
+        self.initial = {}
+        self.pk = Group.objects.get(pk = int(self.kwargs['pk']))
+        self.initial.update(dict(group = self.pk))
+        return self.initial
+
 
     def form_valid(self, form):
         form.save()
@@ -43,7 +51,6 @@ class StudentsEditView(UpdateView):
     Edit student
     """
     model = Student
-    success_url = reverse_lazy('group')
     template_name = 'student/add_student.html'
 
 class StudentsDeleteView(DeleteView):
@@ -51,4 +58,4 @@ class StudentsDeleteView(DeleteView):
     Delete student
     """
     model = Student
-    #success_url = reverse_lazy('group')
+    success_url = reverse_lazy('group')

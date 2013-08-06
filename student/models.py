@@ -20,6 +20,10 @@ class Student(models.Model):
         return self.get_full_name()
 
     @models.permalink
+    def get_absolute_url(self):
+        return ('student_list', [self.group_id])
+
+    @models.permalink
     def get_edit_url(self):
         return ('edit_student' , [self.pk])
 

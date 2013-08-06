@@ -1,33 +1,39 @@
 {%  extends 'base.html' %}
 {% load edit_list %}
 {% block title %}
-    Student List
-{% endblock %}
-{% block content %}
-    <h2>Group: {{ students_list.0.group.name }}</h2>
-    <div><a href="{% url 'group' %}">Back to group list</a> </div>
-    <table style="border: 1px solid #000000">
-    <thead class = "students">
-    <tr style="border: 1px solid #000000">
-        <td class = "students">Name</td>
-        <td class = "students">Birthday</td>
-        <td class = "students">Student Card</td>
-        <td class = "students">Action</td>
-    </tr>
-    </thead>
-    <tbody>
-    {% for student in students_list %}
-    <tr style="border: 1px solid #000000">
-        <td class = "students">{{ student.get_full_name }}</td>
-        <td class = "students">{{ student.birthday }}</td>
-        <td class = "students">{{ student.student_card }}</td>
-        <td class = "students">
-                <a href="{{ student.get_del_url }}">Delete</a> | <a href="{{ student.get_edit_url }}">Edit</a> | {% edit_list student %}
-        </td>
-    </tr>
-    {% endfor %}
-    </tbody>
-    </table>
-    <a href="{% url 'add_student_group' pk=students_list.0.group.pk%}">Add Student</a>
 
+    Student List
+    {% endblock %}
+    {% block content %}
+        {% if not students_list %}
+            <h2>No Student in group</h2>
+            <div><a href="{% url 'group' %}">Back to group list</a> </div>
+            <a href="{% url 'add_student' %}">Add Student</a>
+        {% else %}
+            <h2>Group: {{ students_list.0.group.name }}</h2>
+            <div><a href="{% url 'group' %}">Back to group list</a> </div>
+            <table style="border: 1px solid #000000">
+            <thead class = "students">
+            <tr style="border: 1px solid #000000">
+                <td class = "students">Name</td>
+                <td class = "students">Birthday</td>
+                <td class = "students">Student Card</td>
+                <td class = "students">Action</td>
+            </tr>
+            </thead>
+            <tbody>
+            {% for student in students_list %}
+            <tr style="border: 1px solid #000000">
+                <td class = "students">{{ student.get_full_name }}</td>
+                <td class = "students">{{ student.birthday }}</td>
+                <td class = "students">{{ student.student_card }}</td>
+                <td class = "students">
+                        <a href="{{ student.get_del_url }}">Delete</a> | <a href="{{ student.get_edit_url }}">Edit</a> | {% edit_list student %}
+                </td>
+            </tr>
+            {% endfor %}
+            </tbody>
+            </table>
+            <a href="{% url 'add_student_group' pk=students_list.0.group.pk%}">Add Student</a>
+        {% endif %}
 {% endblock %}
