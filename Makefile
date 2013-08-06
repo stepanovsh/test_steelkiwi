@@ -1,6 +1,3 @@
-default: 
-	requirements db init run
-
 requirements:
 	@echo "Installing requirements"
 	@pip install -r requirements.txt
@@ -17,3 +14,7 @@ test:
 init:
 	python manage.py loaddata --settings=test_steelkiwi.settings.local group/group.json
 	python manage.py loaddata --settings=test_steelkiwi.settings.local student/student.json
+
+default:
+        requirements db init run
+
