@@ -11,17 +11,17 @@ class GroupView(ListView):
 
 class GroupAddView(CreateView):
     model = Group
-    success_url = reverse_lazy("index")
+    success_url = reverse_lazy("group")
     template_name = "group/add_group.html"
 
 class GroupEditView(UpdateView):
     model = Group
-    success_url = reverse_lazy("index")
+    success_url = reverse_lazy("group")
     template_name = "group/add_group.html"
 
 class GroupDeleteView(DeleteView):
     model = Group
-    success_url = reverse_lazy("index")
+    success_url = reverse_lazy("group")
 
 
 

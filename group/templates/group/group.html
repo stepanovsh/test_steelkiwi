@@ -2,24 +2,22 @@
 {% load edit_list %}
 {% block content %}
     <table>
-        <thead>
+        <thead  class = "students">
         <tr style="border: 1px solid #000000">
-            <td>Group</td>
-            <td>Number of students</td>
-            <td>Chief</td>
-            <td></td>
+            <td  class = "students">Group</td>
+            <td  class = "students">Number of students</td>
+            <td  class = "students">Chief</td>
+            <td  class = "students"></td>
         </tr>
         </thead>
         <tbody>
         {% for group in group_list %}
         <tr style="border: 1px solid #000000">
-            <td><a href="{{group.get_absolute_url}}">{{ group.name }}</a> </td>
-            <td>{{ group.students.count }}</td>
-            <td>{{ group.chief.get_full_name }}</td>
-            <td>
-                <a href="{{ group.get_del_url }}">Delete</a>
-                <a href="{{ group.get_edit_url }}">Edit</a>
-                {% edit_list group %}
+            <td  class = "students"><a href="{{group.get_absolute_url}}">{{ group.name }}</a> </td>
+            <td  class = "students">{{ group.students.count }}</td>
+            <td  class = "students">{{ group.chief.get_full_name }}</td>
+            <td  class = "students">
+                <a href="{{ group.get_del_url }}">Delete</a> | <a href="{{ group.get_edit_url }}">Edit</a> | {% edit_list group %}
             </td>
         </tr>
         {% endfor %}

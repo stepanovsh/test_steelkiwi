@@ -1,0 +1,12 @@
+body{
+    margin: 10px;
+}
+thead.students{
+    font-weight: bold;
+}
+td.students {
+    border: 1px solid #000000;
+    text-align: center;
+    padding: 2px;
+
+}

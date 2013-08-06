@@ -14,8 +14,9 @@ class StudentsView(ListView):
 
 class StudentsAddView(CreateView):
     model = Student
-    success_url = reverse_lazy('index')
+    success_url = reverse_lazy('group')
     template_name = 'student/add_student.html'
+
 
 class StudentsEditView(UpdateView):
     model = Student
