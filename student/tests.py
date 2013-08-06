@@ -38,13 +38,13 @@ class SimpleTest(TestCase):
 
         self.login = self.client.login(username = self.username, password = self.password)
 
-        response = self.client.post('/add_group/', self.testGroup)
+        response = self.client.post('/group/add/', self.testGroup)
         self.assertEquals(response.status_code, 302)
 
         group = Group.objects.get(name=self.testGroup['name'])
         self.testStudent['group'] = group.pk
 
-        response = self.client.post('/add_student/', self.testStudent)
+        response = self.client.post('/student/add/', self.testStudent)
         self.assertEquals(response.status_code, 302)
 
         student = Student.objects.get(student_card = self.testStudent['student_card'])
